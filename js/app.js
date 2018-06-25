@@ -106,3 +106,18 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// draw player on-screen
+
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+ // Player will reset after collision
+
+ Player.prototype.reset = function() {  // reset Player
+
+    this.x = 101*2;  // start in 3rd "column"
+    this.y = 83*5-10;  // and 6th "row"
+
+}
