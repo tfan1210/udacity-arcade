@@ -6,6 +6,13 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
+    this.x = Math.random() * -500;  // select random horizontal start position (off-screen); changing this value alters how soon Enemy appears
+    this.y = eRows[Math.floor(Math.random() * eRows.length)];  // select random row (vertical position)
+
+    this.speed = Math.random() * 400 + 100;  // speed varies randomly from min 100 to max <500; changing this value alters how fast Enemy moves
+                                             // if game had difficulty levels speed could increase by a factor, e.g 400*a, for a = [1,2,4]
+
 };
 
 // Update the enemy's position, required method for game
