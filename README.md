@@ -1,6 +1,10 @@
-frontend-nanodegree-arcade-game
-===============================
+##Terence's Frog Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+##Game Detail
+1. The player must cross from the bottom the top without colliding with the enemies.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+2. If collision happens the game restarts which means the score will be set to 0
+
+3. If the player reaches to the end of the other end, a score of 100 will be added.
+
+4. To restart the game, simply click refresh on the browser.
