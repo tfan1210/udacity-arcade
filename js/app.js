@@ -1,4 +1,4 @@
-// **** ENEMY Class ****
+// Enemy class
 var Enemy = function(x,y) {
     'use strict';
     // The image/sprite for our enemies, this uses
@@ -48,12 +48,12 @@ Player.prototype.update = function(dt) {
 
     var self = this;
     //if left key is pressed:
-    if(this.pressedKey === 'left' && this.x > 0) { //player isn't on left edge
+    if(this.pressedKey === 'left' && this.x > 0) { //Player prevention on the left edge
         this.x = this.x - 100;
     }
 
     //if right key is pressed:
-    if(this.pressedKey === 'right' && this.x < 400) { //player isn't on right edge
+    if(this.pressedKey === 'right' && this.x < 400) { //Player prevention on the right edge
         this.x = this.x + 100;
     }
 
@@ -70,7 +70,7 @@ Player.prototype.update = function(dt) {
     //this will make player jump only once when key is pressed:
     this.pressedKey = null;
 
-    //if player reaches water, position reset:
+    //if player reaches water side, position will reset to start!:
     if(this.y < 0) {
         this.reset();
     }
@@ -95,7 +95,7 @@ Player.prototype.handleInput = function(e) {
     this.pressedKey = e;
 };
 
-//Reset player to beginning position
+//Reset player to beginning position where it started
 Player.prototype.reset = function() {
     'use strict';
    this.x = 200;
