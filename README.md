@@ -1,4 +1,4 @@
-#Terence's Frog Game
+# Terence's Frog Game
 
 ## Game Detail
 1. The player must cross from the bottom the top without colliding with the enemies.
