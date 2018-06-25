@@ -46,14 +46,52 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+var Player = function() {
 
+    this.sprite = 'images/char-boy.png';  // load image // why is game crashing if image is changed??
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+    this.x = 101*2;  // start in 3rd column [image size 101x171; image-width:101 = width:101, so no adjustment needed]
+    this.y = 83*5-10;  // and 6th "row" [see position info in l.9]; -10 offset to position sprite squarely within cell (block)
 
+    this.score = 0; // set initial score = 0
+
+};
+
+Player.prototype.update = function() {
+
+    this.x = this.x;
+    this.y = this.y;
+
+};
+
+Player.prototype.handleInput = function(allowedKeys) { // move Player according to keystrokes
+    switch(allowedKeys) {
+      case 'left':
+        this.x = (this.x - 101 >= 0) ? this.x - 101 : 0;  // if not in leftmost cell, move one cell left, else do nothing
+        break;
+      case 'right':
+        this.x = (this.x + 101 <= 101*4) ? this.x + 101 : 101*4;  // if not in rightmost cell, move one cell right, else do nothing
+        break;
+      case 'down':
+        this.y = (this.y + 83 <= 83*5) ? this.y + 83 : 83*5;  // if not in lowermost cell, move one cell down, else do nothing
+        break;
+      case 'up':
+            if(this.y - 83 >= 60){  // if not in topmost cell,
+                this.y -= 83;       // move one cell up,
+            } else {
+
+                this.score += 100;  // else: add to score
+                document.getElementById('score').innerHTML = "Your score: " + this.score; // update score upon success
+                document.getElementById('result').innerHTML = "You made it!"; // update result upon success
+
+                this.reset();  // return player to starting position
+            }
+        break;
+      default:
+        console.log('default');
+        break;
+    }
+};
 
 
 // This listens for key presses and sends the keys to your
